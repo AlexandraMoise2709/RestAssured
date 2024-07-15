@@ -1,17 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-07-15T07:22:53 EEST" name="Default suite" finished-at="2024-07-15T07:22:56 EEST" duration-ms="2566">
+  <suite started-at="2024-07-15T20:34:49 EEST" name="Default suite" finished-at="2024-07-15T20:34:56 EEST" duration-ms="6779">
     <groups>
     </groups>
-    <test started-at="2024-07-15T07:22:53 EEST" name="Default test" finished-at="2024-07-15T07:22:56 EEST" duration-ms="2566">
-      <class name="tests.HomeWork1">
-        <test-method signature="postFakeJson()[pri:0, instance:tests.HomeWork1@4de4b452]" started-at="2024-07-15T07:22:53 EEST" name="postFakeJson" finished-at="2024-07-15T07:22:56 EEST" duration-ms="2517" status="PASS">
+    <test started-at="2024-07-15T20:34:49 EEST" name="Default test" finished-at="2024-07-15T20:34:56 EEST" duration-ms="6779">
+      <class name="tests.CrudExamples">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.CrudExamples@29215f06]" started-at="2024-07-15T20:34:49 EEST" name="setup" finished-at="2024-07-15T20:34:50 EEST" duration-ms="998" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- postFakeJson -->
-      </class> <!-- tests.HomeWork1 -->
+        </test-method> <!-- setup -->
+        <test-method signature="createTodo()[pri:1, instance:tests.CrudExamples@29215f06]" started-at="2024-07-15T20:34:50 EEST" name="createTodo" finished-at="2024-07-15T20:34:54 EEST" duration-ms="4417" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTodo -->
+        <test-method signature="geToDO()[pri:2, instance:tests.CrudExamples@29215f06]" started-at="2024-07-15T20:34:54 EEST" name="geToDO" finished-at="2024-07-15T20:34:55 EEST" duration-ms="549" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- geToDO -->
+        <test-method signature="updateTODO()[pri:3, instance:tests.CrudExamples@29215f06]" started-at="2024-07-15T20:34:55 EEST" name="updateTODO" finished-at="2024-07-15T20:34:55 EEST" duration-ms="371" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateTODO -->
+        <test-method signature="deleteToDO()[pri:4, instance:tests.CrudExamples@29215f06]" started-at="2024-07-15T20:34:55 EEST" name="deleteToDO" finished-at="2024-07-15T20:34:56 EEST" duration-ms="371" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteToDO -->
+      </class> <!-- tests.CrudExamples -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
