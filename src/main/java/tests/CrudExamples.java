@@ -13,7 +13,9 @@ import io.restassured.http.ContentType;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 import static org.testng.Assert.assertEquals;
-import static org.hamcrest.MatcherAssert.assertThat;
+//import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertThat;
+
 
 /*
  * POST
@@ -87,7 +89,9 @@ public class CrudExamples {
 		//testNG assert
 		assertEquals(id, response.jsonPath().getString("_id"));
 		//hamcrest assert
+		
 		assertThat(id, is(equalTo(response.jsonPath().getString("_id"))));
+		//assertThat
 		
 		
 	}

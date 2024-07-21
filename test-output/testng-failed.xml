@@ -3,11 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.HamcrastExample">
+      <class name="tests.Homework2">
         <methods>
-          <include name="hamcrastExample"/>
+          <include name="getTicket"/>
+          <include name="createNewAirline"/>
+          <include name="updateExistingTicket"/>
+          <include name="setup"/>
+          <include name="deleteTicket"/>
+          <include name="updateTicket"/>
         </methods>
-      </class> <!-- tests.HamcrastExample -->
+      </class> <!-- tests.Homework2 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

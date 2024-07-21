@@ -13,6 +13,7 @@ import com.github.javafaker.Faker;
 import io.restassured.response.Response;
 import static io.restassured.RestAssured.given;
 
+@SuppressWarnings("unused")
 public class RestExample {
 	
 	@SuppressWarnings("unchecked")
