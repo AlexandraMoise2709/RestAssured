@@ -85,7 +85,7 @@ public class Homework2 {
     								post("v1/passenger/").
     						then().
     							statusCode(200).
-    							body("name", equalTo(requestBody.get("name"))).		
+    							body("name", equalTo(requestBodyUpdate.get("name"))).		
     						log().all().extract().response();
     	
 		id = response.jsonPath().getString("_id");
@@ -109,7 +109,8 @@ public class Homework2 {
 		
 	}
     //https://api.instantwebtools.net/v1/passenger/
-    @Test(priority=5, dependsOnMethods = "updateExistingTicket")
+    @SuppressWarnings("unused")
+	@Test(priority=5, dependsOnMethods = "updateExistingTicket")
 	public void deleteTicket () {
 
     	Response response = given().

@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="5" passed="2" failed="1" skipped="2">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-07-21T08:41:32 EEST" name="Default suite" finished-at="2024-07-21T08:41:36 EEST" duration-ms="3761">
+  <suite started-at="2024-07-21T09:55:58 EEST" name="Default suite" finished-at="2024-07-21T09:56:02 EEST" duration-ms="3703">
     <groups>
     </groups>
-    <test started-at="2024-07-21T08:41:32 EEST" name="Default test" finished-at="2024-07-21T08:41:36 EEST" duration-ms="3761">
+    <test started-at="2024-07-21T09:55:58 EEST" name="Default test" finished-at="2024-07-21T09:56:02 EEST" duration-ms="3703">
       <class name="tests.Homework2">
-        <test-method is-config="true" signature="setup()[pri:0, instance:tests.Homework2@1151e434]" started-at="2024-07-21T08:41:32 EEST" name="setup" finished-at="2024-07-21T08:41:33 EEST" duration-ms="379" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.Homework2@1151e434]" started-at="2024-07-21T09:55:58 EEST" name="setup" finished-at="2024-07-21T09:55:59 EEST" duration-ms="375" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="createNewAirline()[pri:1, instance:tests.Homework2@1151e434]" started-at="2024-07-21T08:41:33 EEST" name="createNewAirline" finished-at="2024-07-21T08:41:35 EEST" duration-ms="2800" status="PASS">
+        <test-method signature="createNewAirline()[pri:1, instance:tests.Homework2@1151e434]" started-at="2024-07-21T09:55:59 EEST" name="createNewAirline" finished-at="2024-07-21T09:56:02 EEST" duration-ms="2759" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createNewAirline -->
-        <test-method signature="updateTicket()[pri:2, instance:tests.Homework2@1151e434]" started-at="2024-07-21T08:41:35 EEST" name="updateTicket" finished-at="2024-07-21T08:41:36 EEST" depends-on-methods="tests.Homework2.createNewAirline" duration-ms="102" status="PASS">
+        <test-method signature="updateTicket()[pri:2, instance:tests.Homework2@1151e434]" started-at="2024-07-21T09:56:02 EEST" name="updateTicket" finished-at="2024-07-21T09:56:02 EEST" depends-on-methods="tests.Homework2.createNewAirline" duration-ms="108" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- updateTicket -->
-        <test-method signature="updateExistingTicket()[pri:3, instance:tests.Homework2@1151e434]" started-at="2024-07-21T08:41:36 EEST" name="updateExistingTicket" finished-at="2024-07-21T08:41:36 EEST" depends-on-methods="tests.Homework2.updateTicket" duration-ms="436" status="FAIL">
+        <test-method signature="updateExistingTicket()[pri:3, instance:tests.Homework2@1151e434]" started-at="2024-07-21T09:56:02 EEST" name="updateExistingTicket" finished-at="2024-07-21T09:56:02 EEST" depends-on-methods="tests.Homework2.updateTicket" duration-ms="414" status="FAIL">
           <exception class="java.lang.NoSuchMethodError">
             <message>
               <![CDATA['void org.hamcrest.Matcher.describeMismatch(java.lang.Object, org.hamcrest.Description)']]>
@@ -92,7 +92,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- updateExistingTicket -->
-        <test-method signature="getTicket()[pri:4, instance:tests.Homework2@1151e434]" started-at="2024-07-21T08:41:36 EEST" name="getTicket" finished-at="2024-07-21T08:41:36 EEST" depends-on-methods="tests.Homework2.updateExistingTicket" duration-ms="0" status="SKIP">
+        <test-method signature="getTicket()[pri:4, instance:tests.Homework2@1151e434]" started-at="2024-07-21T09:56:02 EEST" name="getTicket" finished-at="2024-07-21T09:56:02 EEST" depends-on-methods="tests.Homework2.updateExistingTicket" duration-ms="0" status="SKIP">
           <exception class="java.lang.Throwable">
             <message>
               <![CDATA[Method Homework2.getTicket()[pri:4, instance:tests.Homework2@1151e434] depends on not successfully finished methods]]>
@@ -124,7 +124,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getTicket -->
-        <test-method signature="deleteTicket()[pri:5, instance:tests.Homework2@1151e434]" started-at="2024-07-21T08:41:36 EEST" name="deleteTicket" finished-at="2024-07-21T08:41:36 EEST" depends-on-methods="tests.Homework2.updateExistingTicket" duration-ms="0" status="SKIP">
+        <test-method signature="deleteTicket()[pri:5, instance:tests.Homework2@1151e434]" started-at="2024-07-21T09:56:02 EEST" name="deleteTicket" finished-at="2024-07-21T09:56:02 EEST" depends-on-methods="tests.Homework2.updateExistingTicket" duration-ms="0" status="SKIP">
           <exception class="java.lang.Throwable">
             <message>
               <![CDATA[Method Homework2.deleteTicket()[pri:5, instance:tests.Homework2@1151e434] depends on not successfully finished methods]]>
