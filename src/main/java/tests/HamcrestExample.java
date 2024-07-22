@@ -3,8 +3,12 @@ package tests;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotEquals;
 
+import java.util.List;
+
+import org.hamcrest.Matcher;
 import org.testng.annotations.Test;
 
+import io.opentelemetry.exporter.logging.SystemOutLogRecordExporter;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import static io.restassured.RestAssured.given;
@@ -88,8 +92,22 @@ public class HamcrestExample {
 		assertThat(response.asString(), either(containsString("abc")).or(containsString("population")));
 
 		
+		List<String> films	= json.getList("films");
+		System.out.println(films.get(1));
+		assertThat(films, contains("https://swapi.dev/api/films/1/", 
+		        "https://swapi.dev/api/films/3/", 
+		        "https://swapi.dev/api/films/4/", 
+		        "https://swapi.dev/api/films/5/", 
+		        "https://swapi.dev/api/films/6/"));
 		
-		
+		assertThat(films, hasSize(5));
+		assertThat(films, hasSize(lessThan(10)));
+		assertThat(films, hasSize(graterThan(3)));
+	}
+
+	private Matcher graterThan(int i) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

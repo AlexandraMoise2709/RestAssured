@@ -3,8 +3,7 @@ package tests;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.anything;
 import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
+
 import static org.testng.Assert.assertEquals;
 
 import org.json.simple.JSONObject;
@@ -29,7 +28,7 @@ public class Homework2 {
 
 	          
 
-	           RestAssured.baseURI = https://api.instantwebtools.net/;
+	           RestAssured.baseURI = "https://api.instantwebtools.net/";
 
 	    
 
@@ -209,5 +208,4 @@ public class Homework2 {
 
 		
 	}
-    
-}
+
