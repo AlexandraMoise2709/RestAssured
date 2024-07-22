@@ -23,104 +23,189 @@ public class Homework2 {
 	String id,name, trips;
 	
 	
-	@BeforeClass
-	public void setup() {
-		
-		RestAssured.baseURI = "https://api.instantwebtools.net/";
-	
-		requestBody = new JSONObject();
-		requestBodyUpdate = new JSONObject();
+	   @BeforeClass
 
-		requestBody.put("name", "Tarom");
-		requestBody.put("country", "Romania");
-		requestBody.put("logo", "https://commons.wikimedia.org/wiki/File:TAROM_Logo_tail.svg");
-		requestBody.put("slogan", "From Romania");		
-		requestBody.put("head_quaters","Bucharest Romania");
-		requestBody.put("website", "www.tarom.com");		
-		requestBody.put("established", "1990");	
-		
+	     public void setup() {
 
-		
-	}
-	
-	@Test(priority=1)
-	public void createNewAirline() {
-		
-	Response response =	
-						given().
-								contentType(ContentType.JSON).
-								body(requestBody.toJSONString()).
-						when().
-								post("v1/airlines/").
-						then().
-								statusCode(200).
-								body("name", equalTo(requestBody.get("name"))).
-								body("_id", anything()).
-							log().all().extract().response();
-	
-		id = response.jsonPath().getString("_id");
-		name = response.jsonPath().getString("name");
-		
+	          
 
-	}
-	
-    @Test(priority=2, dependsOnMethods = "createNewAirline")
-	public void updateTicket() {
-		Faker fakeData = new Faker();		
-		
-		JSONObject requestBodyUpdate = new JSONObject();
-		requestBodyUpdate.put("name", fakeData.artist().name());
-		requestBodyUpdate.put("trips", "250");
-		requestBodyUpdate.put("airline", id);
-	
-	}
-	
-    @Test(priority=3, dependsOnMethods = "updateTicket")
-	public void updateExistingTicket () {
-    	Response response =	
-    						given().
-    								contentType(ContentType.JSON)
-    								.body(requestBodyUpdate.toJSONString()).
-    						when().
-    								post("v1/passenger/").
-    						then().
-    							statusCode(200).
-    							body("name", equalTo(requestBodyUpdate.get("name"))).		
-    						log().all().extract().response();
-    	
-		id = response.jsonPath().getString("_id");
-		name = response.jsonPath().getString("name");
-		trips = response.jsonPath().getString("trips"); 
-		
-	}
-	
-    @Test(priority=4, dependsOnMethods = "updateExistingTicket")
-	public void getTicket () {
+	           RestAssured.baseURI = https://api.instantwebtools.net/;
 
-    	Response response = given().
-    								get("v1/passenger/"+id).
-    						then().
-    								statusCode(200).
-    								extract().response();
+	    
 
-				assertEquals(name, response.jsonPath().getString("name"));
-				assertEquals(trips, response.jsonPath().getString("trips"));
+	           requestBody = new JSONObject();
 
-		
-	}
-    //https://api.instantwebtools.net/v1/passenger/
-    @SuppressWarnings("unused")
-	@Test(priority=5, dependsOnMethods = "updateExistingTicket")
-	public void deleteTicket () {
+	 
 
-    	Response response = given().
-    								delete("v1/passenger/"+id).
-    						then().
-    								statusCode(201).
-    								body("info", equalTo("Passenger data deleted successfully.")).
-    								extract().response();
+	           requestBody.put("name", "Tarom");
 
-	//Passenger data deleted successfully.
+	           requestBody.put("country", "Romania");
+
+	           requestBody.put("logo","https://commons.wikimedia.org/wiki/File:TAROM_Logo_tail.svg");
+
+	           requestBody.put("slogan", "From Romania");      
+
+	           requestBody.put("head_quaters","Bucharest Romania");
+
+	           requestBody.put("website","www.tarom.com");      
+
+	           requestBody.put("established", "1990");
+
+	     }   
+
+	     @Test(priority=1)
+
+	     public void createNewAirline() {
+
+	     Response response =  
+
+	                                given().
+
+	                                           contentType(ContentType.JSON).
+
+	                                           body(requestBody.toJSONString()).
+
+	                                when().
+
+	                                           post("v1/airlines/").
+
+	                                then().
+
+	                                           statusCode(200).
+
+	                                           body("name", equalTo(requestBody.get("name"))).
+
+	                                           body("_id", anything()).
+
+	                                     log().all().extract().response();
+
+	          
+
+	           id = response.jsonPath().getString("_id");
+
+	           name = response.jsonPath().getString("name");
+
+	     }
+
+	 
+
+	    
+
+	    @Test(priority=2, dependsOnMethods = "createNewAirline")
+
+	     public void updateExistingTicket () {
+
+	           Faker fakeData = new Faker();        
+
+	          
+
+	           requestBodyUpdate = new JSONObject();
+
+	           requestBodyUpdate.put("name", fakeData.artist().name());
+
+	           requestBodyUpdate.put("trips", 250);
+
+	           requestBodyUpdate.put("airline", id);
+
+	          
+
+	    Response response =  
+
+	                                given().
+
+	                                          contentType(ContentType.JSON)
+
+	                                          .body(requestBodyUpdate.toJSONString()).
+
+	                                when().
+
+	                                           post("v1/passenger/").
+
+	                                then().
+
+	                                     statusCode(200).
+
+	                                     //body("name", equalTo(requestBody.get("name"))).
+
+	                                     body("airline.name[0]", equalTo(requestBody.get("name"))).
+
+	                                log().all().extract().response();
+
+	           id = response.jsonPath().getString("_id");
+
+	           name = response.jsonPath().getString("name");
+
+	           trips = response.jsonPath().getString("trips"); 
+
+	          
+
+	     }
+
+	    
+
+	    @Test(priority=4, dependsOnMethods = "updateExistingTicket")
+
+	     public void getTicket () {
+
+	 
+
+	    Response response = given().
+
+	                                           get("v1/passenger/"+id).
+
+	                                then().
+
+	                                           statusCode(200).
+
+	                                           extract().response();
+
+	 
+
+	                     assertEquals(name, response.jsonPath().getString("name"));
+
+	                     assertEquals(trips, response.jsonPath().getString("trips"));
+
+	 
+
+	          
+
+	     }
+
+	    //https://api.instantwebtools.net/v1/passenger/
+
+	    @Test(priority=5, dependsOnMethods = "updateExistingTicket")
+
+	     public void deleteTicket () {
+
+	 
+
+	    Response response = given().
+
+	                                           delete("v1/passenger/"+id).
+
+	                                then().
+
+	                                           statusCode(200).
+
+	                                           //body("info", equalTo("Passenger data deleted successfully.")).
+
+	                                           body("message", equalTo("Passenger data deleted successfully.")).
+
+	 
+
+	                                           extract().response();
+
+	 
+
+	    System.out.println(response.asPrettyString());
+
+	     //Passenger data deleted successfully.
+
+	 
+
+	          
+
+	     }
 
 		
 	}
