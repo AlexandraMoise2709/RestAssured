@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "success": {
+      "type": "boolean"
+    },
+    "msg": {
+      "type": "string"
+    },
+    "result": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "age": {
+          "type": "null"
+        },
+        "gender": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "_id",
+        "name",
+        "email",
+        "age",
+        "gender"
+      ]
+    }
+  },
+  "required": [
+    "success",
+    "msg",
+    "result"
+  ]
+}

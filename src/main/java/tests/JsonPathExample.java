@@ -46,14 +46,15 @@ public class JsonPathExample {
 		System.out.println("---------------------");
 		String getAllFritz = json.getString("users.findAll{it.name=='Fritz'}._id");
 		System.out.println(getAllFritz);
-		
+		//AND
 		String oldFritz = json.getString("users.findAll{it.age==115 & it.name =='Fritz'}._id");
 		System.out.println("old " + oldFritz);
-		
+		//OR
 		List<String> allFritzAndHans = json.getList("users.findAll{it.name =='Fritz' | it.name == 'Hans'}");
 		System.out.println(allFritzAndHans);
 		System.out.println(allFritzAndHans.size());
 
+		
 	}
 	
 }
