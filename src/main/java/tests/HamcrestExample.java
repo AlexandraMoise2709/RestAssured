@@ -3,17 +3,22 @@ package tests;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotEquals;
 
+import java.util.Arrays;
 import java.util.List;
 
-import org.hamcrest.Matcher;
 import org.testng.annotations.Test;
 
-import io.opentelemetry.exporter.logging.SystemOutLogRecordExporter;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import utils.NumberChecker;
+
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.*;
+
+import static utils.NumberChecker.*;
+import static utils.NumberIsPositive.positiveNumber;
+
 
 public class HamcrestExample {
 
@@ -91,23 +96,101 @@ public class HamcrestExample {
 		assertThat(name, either(is("Tatooine")).or(is("Mars")).or(is("Terra")) );
 		assertThat(response.asString(), either(containsString("abc")).or(containsString("population")));
 
-		
-		List<String> films	= json.getList("films");
+		List<String> films = json.getList("films");
 		System.out.println(films.get(1));
-		assertThat(films, contains("https://swapi.dev/api/films/1/", 
+		
+		
+		assertThat(films, contains( "https://swapi.dev/api/films/1/", 
 		        "https://swapi.dev/api/films/3/", 
 		        "https://swapi.dev/api/films/4/", 
 		        "https://swapi.dev/api/films/5/", 
 		        "https://swapi.dev/api/films/6/"));
 		
+		
 		assertThat(films, hasSize(5));
 		assertThat(films, hasSize(lessThan(10)));
-		assertThat(films, hasSize(graterThan(3)));
-	}
+		assertThat(films, hasSize(greaterThan(3)));
+		
+		
+		assertThat(films, both(hasSize(lessThan(6))).and(hasToString(containsString("films/6/"))));
+		
+		
+		assertThat(films, contains(
+				startsWith("https://swapi"),
+				endsWith("3/"),
+				equalTo("https://swapi.dev/api/films/4/"),
+				containsString("dev/api/films/5/"),
+				endsWith("6/")
+				));
+		
+		assertThat(films, hasItem("https://swapi.dev/api/films/5/"));
+		assertThat(films, hasItems("https://swapi.dev/api/films/1/", "https://swapi.dev/api/films/3/"));
+		
+		assertThat(films, hasItem(startsWith("http")));
+		assertThat(films, hasItem(endsWith("1/")));
+		assertThat(films, hasItem(containsString("dev/api")));
+		
+		assertThat(films, hasItems(containsString("api"), endsWith("4/")));
+		
+		assertThat(films, is(not(emptyCollectionOf(String.class))));
+		
+		//array
+		String[] array = {json.getString("name"),json.getString("diameter"),json.getString("climate"),
+							json.getString("gravity"),json.getString("terrain"),json.getString("population")};
+		
+	
+		System.out.println(array[1]);
+		
+		String[] array2 = {};
+		
+		assertThat(array2, is(emptyArray()));
+		//assertThat(array, is(not(emptyArray())));
+		assertThat(array, is(not(nullValue())));
+		
+		System.out.println("--------------------------------");
+		System.out.println(Arrays.toString(array));
+		
+		assertThat(array, arrayContaining("Tatooine", "10465", "arid", "1 standard", "desert", "200000"));
+		
+		assertThat(array, arrayContainingInAnyOrder("10465","Tatooine", "arid", "1 standard", "desert", "200000"));
 
-	private Matcher graterThan(int i) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		System.out.println(response.asString());
+		
+		assertThat(response.asString(), containsStringIgnoringCase("ArID"));	
+		assertThat(response.asString(), stringContainsInOrder("rotation_period", "climate"));
+			
+		/*
+		 * "orbital_period": "304",
+		    "diameter": "10465",
+		    "climate": "arid",
+		    "gravity": "1 standard",
+		    "terrain": "desert",
+		    "surface_water": "1",
+		    "population": "200000",
+		 */
+		
+		String climate = json.getString("climate");
+		String population = json.getString("population");
+		String orbitalPeriod = json.getString("orbital_period");
+		
+		System.out.println("-----------------------------------");
+		
+		System.out.println(climate);
+		System.out.println(population);
+		System.out.println(orbitalPeriod);
+		
+		assertThat(orbitalPeriod, is(numbersOnly()));
+		
+		assertThat(orbitalPeriod, numbersOnly());
+
+		assertThat(climate, is(not(numbersOnly())));
+		assertThat(population, is(numbersOnly()));
+		
+		assertThat(Integer.parseInt(orbitalPeriod), is(positiveNumber()));
+		//assertThat(-8, is(positiveNumber()));
+		
+		assertThat(Integer.parseInt(orbitalPeriod), is(greaterThan(0)));
 	}
 	
 	
