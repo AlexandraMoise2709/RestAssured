@@ -1,36 +1,48 @@
 package tests;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertThat;
 
-import org.json.simple.JSONObject;
+import org.hamcrest.Matcher;
+import org.testng.annotations.Test;
 
 import static org.hamcrest.Matchers.*;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertThat;
+
 
 public class Homework4 {
 
+	
+	@Test
 	public void testAPI() {
-	Response response = given().get("https://swapi.dev/api/people/1/").then().extract().response();
+	Response response = given().get("https://swapi.dev/api/people/1/").then().extract().response();	
 	
-	
-	
-	try {
+
 		JsonPath jsonPath = response.jsonPath();
 		String name = jsonPath.getString("name");
 		
 		System.out.println(name);
-	//	assertThat(name, equalTo("Luke Skywalker"));
+		assertThat(name, equalTo("Luke Skywalker"));
 		
 		String height = jsonPath.getString("height");
-        //assertThat(height, is(greaterThan(170)));
+		assertThat(Integer.parseInt(height), greaterThan(171));
 		
-	}catch(Exception e) {
+		String mass = jsonPath.getString("mass");
+		assertThat(Integer.parseInt(mass), lessThan(80));
 		
-		e.printStackTrace();
+		String eyeColor = jsonPath.getString("eye_color");
+		String hairColor = jsonPath.getString("hair_color");
+		String skinColor = jsonPath.getString("skin_color");
+		
+		
+	       assertThat((eyeColor+ ' ' +hairColor+' '+skinColor), equalTo("blue blond fair"));
+	   
+	       String birthYear = jsonPath.getString("birth_year");
+	       
+}
+
+
 	}
-	
-}
-}
