@@ -5,7 +5,7 @@
     <classes>
       <class name="tests.HomeWork3">
         <methods>
-          <include name="testStarship"/>
+          <include name="testStarshipInstannce"/>
         </methods>
       </class> <!-- tests.HomeWork3 -->
     </classes>
