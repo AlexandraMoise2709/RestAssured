@@ -1,4 +1,4 @@
-package testdata;
+package testData;
 
 import org.json.simple.JSONObject;
 
