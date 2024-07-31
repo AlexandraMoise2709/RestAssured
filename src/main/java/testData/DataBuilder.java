@@ -1,7 +1,6 @@
-package testData;
+package testdata;
 
 import org.json.simple.JSONObject;
-
 
 import com.github.javafaker.Faker;
 
