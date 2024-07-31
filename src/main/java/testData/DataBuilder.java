@@ -35,6 +35,18 @@ public class DataBuilder {
 	}
 	
 	
-	
+	@SuppressWarnings("unchecked")
+	public static JSONObject buildToken() {
+		
+		
+		JSONObject tokenBuilder = new JSONObject();
+		tokenBuilder.put(tokenBuilder,tokenBuilder);
+		tokenBuilder.put(tokenBuilder,tokenBuilder);
+
+		return null;
+		
+		
+		
+	}
 	
 }

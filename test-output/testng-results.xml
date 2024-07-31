@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-07-29T07:06:37 EEST" name="Default suite" finished-at="2024-07-29T07:06:42 EEST" duration-ms="4248">
+  <suite started-at="2024-07-31T21:08:00 EEST" name="Default suite" finished-at="2024-07-31T21:08:03 EEST" duration-ms="3573">
     <groups>
     </groups>
-    <test started-at="2024-07-29T07:06:37 EEST" name="Default test" finished-at="2024-07-29T07:06:42 EEST" duration-ms="4248">
-      <class name="tests.Homework4">
-        <test-method signature="testAPI()[pri:0, instance:tests.Homework4@593aaf41]" started-at="2024-07-29T07:06:37 EEST" name="testAPI" finished-at="2024-07-29T07:06:42 EEST" duration-ms="4189" status="PASS">
+    <test started-at="2024-07-31T21:08:00 EEST" name="Default test" finished-at="2024-07-31T21:08:03 EEST" duration-ms="3573">
+      <class name="tests.RestassuredXmlExample">
+        <test-method signature="testXmlResponse()[pri:0, instance:tests.RestassuredXmlExample@593aaf41]" started-at="2024-07-31T21:08:00 EEST" name="testXmlResponse" finished-at="2024-07-31T21:08:03 EEST" duration-ms="3521" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testAPI -->
-      </class> <!-- tests.Homework4 -->
+        </test-method> <!-- testXmlResponse -->
+      </class> <!-- tests.RestassuredXmlExample -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

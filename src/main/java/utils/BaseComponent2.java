@@ -23,7 +23,7 @@ public class BaseComponent2 {
 	
 		Response responseToken = given(). 
 				contentType(ContentType.JSON). 
-				body("{\"user\":\"admin\",\"pass\": \"admin@123\"}"). 
+				body(DataBuilder.buildToken().). 
 				post("https://dev-todo-b369f85c9f07.herokuapp.com/api/login")
 				.then().extract().response();
 				
